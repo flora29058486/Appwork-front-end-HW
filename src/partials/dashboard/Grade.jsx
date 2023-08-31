@@ -60,5 +60,4 @@ function Grade() {
     </div>
   );
 }
-
 export default Grade;

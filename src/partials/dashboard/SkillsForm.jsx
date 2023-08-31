@@ -39,8 +39,8 @@ function SkillsForm() {
           />
         </div>
         {Object.keys(skills).map((skill) => (
-          <div className="" key={skill}>
-            <label className="">{skill}</label>
+          <div className="mb-4" key={skill}>
+            <label className="pr-4">{skill}</label>
             <select
               className="border rounded"
               value={skills[skill]}
