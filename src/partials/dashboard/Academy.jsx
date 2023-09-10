@@ -6,17 +6,18 @@ function Academy() {
   let { labels, values } = useAcademystats();
   // const { labels, values } = academyStats;
   // 生成隨機色碼的函式
-  const getRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i += 1) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
+  // const getRandomColor = () => {
+  //   const letters = "0123456789ABCDEF";
+  //   let color = "#";
+  //   for (let i = 0; i < 6; i += 1) {
+  //     color += letters[Math.floor(Math.random() * 16)];
+  //   }
+  //   return color;
+  // };
+  let collegeColor = [];
 
   // 文學院
-  const artCollage = ["中國文學系",
+  const artcollege = ["中國文學系",
   "外國語文學系",
   "歷史學系",
   "哲學系",
@@ -33,7 +34,7 @@ function Academy() {
   "外國語文學系 / 圖書資訊學系",
   "外國語文學系/社會學系"];
   // 理學院
-  const scienceCollage = ["數學系",
+  const sciencecollege = ["數學系",
   "物理學系",
   "化學系",
   "地質科學系",
@@ -49,7 +50,7 @@ function Academy() {
   "地球系統科學國際研究生博士學位學程",
   "心理所一般組"];
   // 社會科學院
-  const socialSciencesCollage = ["政治學系",
+  const socialSciencescollege = ["政治學系",
   "經濟學系",
   "經濟學系",
   "社會學系",
@@ -58,7 +59,7 @@ function Academy() {
   "新聞研究所",
   "公共事務研究所"];
   // 醫學院
-  const medicineCollage = ["牙醫專業學院",
+  const medicinecollege = ["牙醫專業學院",
   "牙醫學系",
   "臨床牙醫學研究所",
   "口腔生物科學研究所",
@@ -68,7 +69,7 @@ function Academy() {
   "藥物研究中心",
   "物理治療學系"];
   // 工學院
-  const engineeringCollage = ["土木工程學系",
+  const engineeringcollege = ["土木工程學系",
   "機械工程學系",
   "化學工程學系",
   "工程科學及海洋工程學系",
@@ -100,7 +101,7 @@ function Academy() {
   "植物醫學碩士學位學程",
   "生物科技與食品營養學士學位學程"]
   // 管理學院
-  const managementCollage = ["工商管理學系",
+  const managementcollege = ["工商管理學系",
   "工商管理學系 科技管理組",
   "會計學系",
   "財務金融學系",
@@ -108,7 +109,7 @@ function Academy() {
   "資訊管理學系",
   "商學研究所"]
   // 公共衛生學院
-  // const publicHealthCollage = ["公共衛生學系",
+  // const publicHealthcollege = ["公共衛生學系",
   // "健康政策與管理研究所",
   // "環境與職業健康科學研究所",
   // "流行病學與預防醫學研究所",
@@ -116,7 +117,7 @@ function Academy() {
   // "食品安全與健康研究所",
   // "健康數據拓析統計研究所"]
   // 電機資訊學院
-  const electricalEngineeringAndComputerScienceCollage = ["電機工程學系",
+  const electricalEngineeringAndComputerSciencecollege = ["電機工程學系",
   "資訊工程學系",
   "光電工程學研究所",
   "電信工程學研究所",
@@ -128,7 +129,7 @@ function Academy() {
   "法律學系",
   "科際整合法律學研究所"]
   // 生命科學院
-  // const biotechCollage = [
+  // const biotechcollege = [
   // "生命科學系",
   // "生化科技學系",
   // "植物科學研究所",
@@ -161,27 +162,27 @@ function Academy() {
       const label = labels[i];
       const value = values[i];
   
-      if (artCollage.includes(label)) {
+      if (artcollege.includes(label)) {
         groupedValues.art += value;
-      } else if (scienceCollage.includes(label)) {
+      } else if (sciencecollege.includes(label)) {
         groupedValues.science += value;
-      } else if (socialSciencesCollage.includes(label)) {
+      } else if (socialSciencescollege.includes(label)) {
         groupedValues.socialSciences += value;
-      } else if (medicineCollage.includes(label)) {
+      } else if (medicinecollege.includes(label)) {
         groupedValues.medicine += value;
-      } else if (engineeringCollage.includes(label)) {
+      } else if (engineeringcollege.includes(label)) {
         groupedValues.engineering += value;
       } else if (bioResourcesAndAgricultureColalge.includes(label)) {
         groupedValues.bioResourcesAndAgriculture += value;
-      } else if (managementCollage.includes(label)) {
+      } else if (managementcollege.includes(label)) {
         groupedValues.management += value;
-      // } else if (publicHealthCollage.includes(label)) {
+      // } else if (publicHealthcollege.includes(label)) {
       //   groupedValues.publicHealth += value;
-      } else if (electricalEngineeringAndComputerScienceCollage.includes(label)) {
+      } else if (electricalEngineeringAndComputerSciencecollege.includes(label)) {
         groupedValues.electricalEngineeringAndComputerScience += value;
       } else if (lawSchool.includes(label)) {
         groupedValues.law += value;
-      // } else if (biotechCollage.includes(label)) {
+      // } else if (biotechcollege.includes(label)) {
       //   groupedValues.biotech += value;
       } else if (dSchool.includes(label)) {
         groupedValues.d += value;
@@ -200,14 +201,30 @@ function Academy() {
       "law": "法律學院",
       "d": "創新設計學院"
     };
+
+    const colorMapping = {
+      "art": "#FCFCFC",
+      "science": "#FFFF37",
+      "socialSciences": "#6F00D2",
+      "medicine": "#00A600",
+      "engineering": "#EA0000",
+      "bioResourcesAndAgriculture": "#FFF4C1",
+      "management": "#ADADAD",
+      "electricalEngineeringAndComputerScience": "#0000C6",
+      "law": "#6F00D2",
+      "d": "#3C3C3C"
+    }
   
-    const groupByCollage = {
+    const groupBycollege = {
       labels: Object.keys(groupedValues),
       values: Object.values(groupedValues)
     }
-    labels = groupByCollage.labels;
+    labels = groupBycollege.labels;
+
+    collegeColor = labels.map(originalName => colorMapping[originalName] || originalName);
     labels = labels.map(originalName => nameMapping[originalName] || originalName);
-    values = groupByCollage.values;
+    values = groupBycollege.values;
+
   }
 
   
@@ -217,7 +234,7 @@ function Academy() {
       {
         label: "Distribution of colleges",
         data: values,
-        backgroundColor: values?.map(() => getRandomColor()),
+        backgroundColor: collegeColor,
         borderWidth: 0
       }
     ]
